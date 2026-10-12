@@ -23,10 +23,21 @@ interface StoredData {
   lastConversion?: unknown;
 }
 
+/**
+ * The part of Obsidian's moment.js this plugin uses, typed here so that the code stays fully typed even where the
+ * moment type definitions are not installed (Obsidian's automated review, for instance).
+ */
+interface ParsedMoment {
+  isValid(): boolean;
+  year(): number;
+  format(pattern: string): string;
+}
+const readMoment = moment as unknown as (text: string, format: string | string[], strict?: boolean) => ParsedMoment;
+
 /** Dates and times are read with Obsidian's moment.js, like the Kanban plugin does. */
 const parseDate: DateParser = (text, format) => {
-  const strict = moment(text, format, true);
-  const parsed = strict.isValid() ? strict : moment(text, format);
+  const strict = readMoment(text, format, true);
+  const parsed = strict.isValid() ? strict : readMoment(text, format);
   if (!parsed.isValid() || parsed.year() < 1900 || parsed.year() > 2200) return null;
   return parsed.format('YYYY-MM-DD');
 };
@@ -35,7 +46,7 @@ const parseDate: DateParser = (text, format) => {
 const TIME_FORMATS = ['HH:mm', 'H:mm', 'h:mm a', 'h:mma', 'h a', 'ha', 'HH[h]mm', 'H[h]mm', 'H[h]'];
 
 const parseTime: TimeParser = (text, format) => {
-  const parsed = moment(text, [format, ...TIME_FORMATS], true);
+  const parsed = readMoment(text, [format, ...TIME_FORMATS], true);
   return parsed.isValid() ? parsed.format('HH:mm') : null;
 };
 

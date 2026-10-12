@@ -1,7 +1,7 @@
 {
   "id": "kanban-to-bases",
   "name": "Kanban to Bases",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "minAppVersion": "1.14.0",
   "description": "Convert boards made with the Kanban community plugin into notes and a base shown in the native Kanban view.",
   "author": "Brievora",
