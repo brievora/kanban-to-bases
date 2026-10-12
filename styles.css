@@ -1,0 +1,232 @@
+/* Kanban to Bases. Uses Obsidian's CSS variables only, so it follows every theme. */
+
+.ktb-modal {
+  width: 680px;
+  max-width: 100%;
+}
+
+.ktb-header {
+  margin-bottom: var(--size-4-3);
+}
+
+.ktb-board-name {
+  font-size: var(--font-ui-large);
+  font-weight: var(--font-semibold);
+  color: var(--text-normal);
+  overflow-wrap: anywhere;
+}
+
+.ktb-summary {
+  color: var(--text-muted);
+  font-size: var(--font-ui-small);
+}
+
+.ktb-section-title {
+  margin: var(--size-4-5) 0 var(--size-4-2);
+  font-size: var(--font-ui-medium);
+  font-weight: var(--font-semibold);
+  color: var(--text-normal);
+}
+
+.ktb-base-line {
+  display: flex;
+  align-items: center;
+  gap: var(--size-4-2);
+  margin-top: var(--size-4-3);
+  font-size: var(--font-ui-small);
+}
+
+.ktb-base-icon {
+  display: flex;
+  color: var(--interactive-accent);
+}
+
+.ktb-base-label {
+  flex-shrink: 0;
+  font-weight: var(--font-semibold);
+  color: var(--text-normal);
+}
+
+.ktb-base-path {
+  min-width: 0;
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+
+.ktb-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-4-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ktb-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--size-4-2);
+  padding: var(--size-2-2) var(--size-4-3);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m);
+  background-color: var(--background-secondary);
+  font-size: var(--font-ui-small);
+}
+
+.ktb-chip-name {
+  color: var(--text-normal);
+  overflow-wrap: anywhere;
+}
+
+.ktb-plain-list {
+  margin: 0;
+  padding-inline-start: var(--size-4-5);
+  color: var(--text-normal);
+}
+
+.ktb-plain-list li + li {
+  margin-top: var(--size-4-1);
+}
+
+.ktb-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ktb-list li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--size-4-3);
+  padding: var(--size-2-1) var(--size-4-2);
+  border-radius: var(--radius-s);
+  font-size: var(--font-ui-small);
+}
+
+.ktb-list li:nth-child(odd) {
+  background-color: var(--background-secondary);
+}
+
+.ktb-list-text {
+  color: var(--text-normal);
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+.ktb-count,
+.ktb-list-meta {
+  flex-shrink: 0;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.ktb-list li.ktb-list-more {
+  color: var(--text-faint);
+  font-style: italic;
+  background-color: transparent;
+}
+
+.ktb-badge {
+  padding: 0 var(--size-4-1);
+  border-radius: var(--radius-s);
+  background-color: var(--background-modifier-hover);
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+}
+
+.ktb-empty,
+.ktb-hint {
+  color: var(--text-muted);
+  font-size: var(--font-ui-small);
+}
+
+.ktb-options {
+  margin-top: var(--size-4-4);
+}
+
+.ktb-folder-setting {
+  flex-wrap: wrap;
+  gap: var(--size-4-2);
+}
+
+.ktb-folder-setting .setting-item-control {
+  flex: 1 1 100%;
+}
+
+.ktb-folder-setting .setting-item-control input {
+  width: 100%;
+}
+
+.ktb-error {
+  display: none;
+  margin-top: var(--size-4-1);
+  color: var(--text-error);
+}
+
+.ktb-error.is-visible {
+  display: block;
+}
+
+.ktb-warnings {
+  margin-top: var(--size-4-4);
+  padding: var(--size-4-2) var(--size-4-3);
+  border-inline-start: 3px solid var(--color-orange);
+  border-radius: var(--radius-s);
+  background-color: rgba(var(--color-orange-rgb), 0.08);
+}
+
+.ktb-warnings-title {
+  margin-bottom: var(--size-4-1);
+  font-size: var(--font-ui-small);
+  font-weight: var(--font-semibold);
+  color: var(--text-normal);
+}
+
+.ktb-warnings .ktb-list li,
+.ktb-warnings .ktb-list li:nth-child(odd) {
+  padding: var(--size-2-1) 0;
+  background-color: transparent;
+  color: var(--text-muted);
+}
+
+.ktb-stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ktb-stats li {
+  display: flex;
+  align-items: center;
+  gap: var(--size-4-2);
+  padding: var(--size-4-1) 0;
+  overflow-wrap: anywhere;
+}
+
+.ktb-stat-icon {
+  display: flex;
+  color: var(--interactive-accent);
+}
+
+.ktb-promo {
+  color: var(--text-muted);
+  font-size: var(--font-ui-small);
+  line-height: var(--line-height-tight);
+}
+
+.ktb-promo.is-compact {
+  margin-top: var(--size-4-4);
+  padding-top: var(--size-4-3);
+  border-top: 1px solid var(--background-modifier-border);
+  font-size: var(--font-ui-smaller);
+}
+
+.ktb-promo-setting {
+  display: block;
+  margin-top: var(--size-4-4);
+  padding: var(--size-4-3) var(--size-4-4);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m);
+  background-color: var(--background-secondary);
+}
